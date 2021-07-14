@@ -7,8 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    
+    let customPresentionController = CustomPresentationController(direction: .right)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -16,6 +20,19 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor.blue
     }
 
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let toCtrl = segue.destination as UIViewController
+        toCtrl.transitioningDelegate = self
+        toCtrl.modalPresentationStyle = .overFullScreen
+        
+    }
+    
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customPresentionController
+    }
 }
 
