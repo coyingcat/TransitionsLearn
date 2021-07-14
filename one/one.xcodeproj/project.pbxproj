@@ -14,6 +14,7 @@
 		265405C7269E742A00F8D502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265405C6269E742A00F8D502 /* Assets.xcassets */; };
 		265405CA269E742A00F8D502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 265405C8269E742A00F8D502 /* LaunchScreen.storyboard */; };
 		265405D2269E744400F8D502 /* ViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265405D1269E744400F8D502 /* ViewControllerTwo.swift */; };
+		265405D4269E75FE00F8D502 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265405D3269E75FE00F8D502 /* CustomPresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		265405C9269E742A00F8D502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		265405CB269E742A00F8D502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		265405D1269E744400F8D502 /* ViewControllerTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTwo.swift; sourceTree = "<group>"; };
+		265405D3269E75FE00F8D502 /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				265405C8269E742A00F8D502 /* LaunchScreen.storyboard */,
 				265405CB269E742A00F8D502 /* Info.plist */,
 				265405D1269E744400F8D502 /* ViewControllerTwo.swift */,
+				265405D3269E75FE00F8D502 /* CustomPresentationController.swift */,
 			);
 			path = one;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 				265405C2269E742900F8D502 /* ViewController.swift in Sources */,
 				265405BE269E742900F8D502 /* AppDelegate.swift in Sources */,
 				265405C0269E742900F8D502 /* SceneDelegate.swift in Sources */,
+				265405D4269E75FE00F8D502 /* CustomPresentationController.swift in Sources */,
 				265405D2269E744400F8D502 /* ViewControllerTwo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
