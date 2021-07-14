@@ -74,7 +74,20 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
         }
          
         let finalCtrlFrame = transitionContext.finalFrame(for: toCtrl)
+        let containerView = transitionContext.containerView
         
+        toCtrl.view.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
+        containerView.addSubview(toCtrl.view)
+        
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
+            fromCtrl.view.alpha = 0.5
+            toCtrl.view.frame = finalCtrlFrame
+        } completion: { _ in
+            fromCtrl.view.alpha = 1
+            transitionContext.completeTransition(true)
+        }
+
+       
         
         
     }
