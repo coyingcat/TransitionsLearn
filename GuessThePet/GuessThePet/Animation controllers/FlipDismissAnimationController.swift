@@ -83,7 +83,8 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
        
         snapshot.removeFromSuperview()
         if transitionContext.transitionWasCancelled {
-          toVC.view.removeFromSuperview()
+          fromVC.view.alpha = 1
+          containerView.sendSubview(toBack: toVC.view)
         }
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     })
