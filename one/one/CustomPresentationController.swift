@@ -59,7 +59,7 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.5
+        return 3
     }
     
     
@@ -118,7 +118,7 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 5
+        return 3
     }
     
     
@@ -128,19 +128,20 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard let fromCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-              let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from) else{
+              let toCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), let toView = toCtrl.view else{
             return
         }
-         
+        
+        fromCtrl.view.isHidden = true
         let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
         let containerView = transitionContext.containerView
 
-        fromView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
+        toView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
         
-        containerView.bringSubviewToFront(fromView)
+        containerView.bringSubviewToFront(toView)
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
-            fromView.frame = finalCtrlFrame
-            fromCtrl.view.alpha = 0.5
+            toView.frame = finalCtrlFrame
+       
         } completion: { _ in
             
             transitionContext.completeTransition(true)
