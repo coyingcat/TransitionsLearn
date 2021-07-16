@@ -42,8 +42,10 @@ class SwipeInteractionController: UIPercentDrivenInteractiveTransition {
   }
   
   private func prepareGestureRecognizer(in view: UIView) {
-    let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
-    gesture.edges = .left
+    
+    let gesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
+
+    view.isUserInteractionEnabled = true
     view.addGestureRecognizer(gesture)
   }
   
