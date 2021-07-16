@@ -54,14 +54,14 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
     snapshot.layer.masksToBounds = true
     
     let containerView = transitionContext.containerView
-    containerView.insertSubview(toVC.view, at: 0)
+
     containerView.addSubview(snapshot)
-    fromVC.view.isHidden = true
+    fromVC.view.alpha = 0.5
     
     AnimationHelper.perspectiveTransform(for: containerView)
     toVC.view.layer.transform = AnimationHelper.yRotation(-.pi / 2)
     let duration = transitionDuration(using: transitionContext)
-    
+    containerView.bringSubview(toFront: toVC.view)
     UIView.animateKeyframes(
       withDuration: duration,
       delay: 0,
@@ -80,7 +80,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
         }
     },
       completion: { _ in
-        fromVC.view.isHidden = false
+       
         snapshot.removeFromSuperview()
         if transitionContext.transitionWasCancelled {
           toVC.view.removeFromSuperview()
@@ -89,3 +89,4 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
     })
   }
 }
+ 
