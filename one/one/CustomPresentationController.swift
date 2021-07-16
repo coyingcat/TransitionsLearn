@@ -99,25 +99,21 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
         guard let fromCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
-              let toCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), let toView = toCtrl.view, let snapshot = fromCtrl.view.snapshotView(afterScreenUpdates: false) else{
+              let toCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), let toView = toCtrl.view, let snapshot = toView.snapshotView(afterScreenUpdates: true) else{
             return
         }
         
         let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
         let containerView = transitionContext.containerView
-        fromCtrl.view.alpha = 0.5
-        toView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
-    
-        if let fromC = fromCtrl as? ViewControllerTwo{
-          fromC.view.backgroundColor = UIColor.clear
-        }
-        snapshot.frame = finalCtrlFrame
+
+        snapshot.frame =
+            presentingDirection.offsetF(withFrame: finalCtrlFrame)
+        
         containerView.addSubview(snapshot)
         containerView.bringSubviewToFront(toView)
-  
+        toView.frame = finalCtrlFrame
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
-            toView.frame = finalCtrlFrame
-       
+            snapshot.frame = finalCtrlFrame
         } completion: { _ in
             snapshot.removeFromSuperview()
             

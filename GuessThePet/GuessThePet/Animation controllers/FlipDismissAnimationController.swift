@@ -39,7 +39,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
   }
   
   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return 0.6
+    return 5
   }
   
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -68,7 +68,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
     AnimationHelper.perspectiveTransform(for: containerView)
     toView.layer.transform = AnimationHelper.yRotation(-.pi / 2)
     let duration = transitionDuration(using: transitionContext)
-    containerView.bringSubview(toFront: toView)
+    containerView.bringSubviewToFront(toView)
     UIView.animateKeyframes(
       withDuration: duration,
       delay: 0,
@@ -91,7 +91,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
         snapshot.removeFromSuperview()
         if transitionContext.transitionWasCancelled {
           fromVC.view.alpha = 1
-          containerView.sendSubview(toBack: toView)
+          containerView.sendSubviewToBack(toView)
         }
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     })
