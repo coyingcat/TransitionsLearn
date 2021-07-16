@@ -102,7 +102,6 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
               let toCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), let toView = toCtrl.view, let snapshot = toView.snapshotView(afterScreenUpdates: true) else{
             return
         }
-        
         let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
         let containerView = transitionContext.containerView
 
