@@ -59,7 +59,7 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
+        return 1
     }
     
     
@@ -118,7 +118,7 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 2
+        return 1
     }
     
     
@@ -144,8 +144,8 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
             toView.frame = finalCtrlFrame
        
         } completion: { _ in
-            
-            transitionContext.completeTransition(true)
+            let success = !transitionContext.transitionWasCancelled
+            transitionContext.completeTransition(success)
         }
 
        
