@@ -45,6 +45,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     guard let fromVC = transitionContext.viewController(forKey: .from),
       let toVC = transitionContext.viewController(forKey: .to),
+      let toView = toVC.view,
       let snapshot = fromVC.view.snapshotView(afterScreenUpdates: false)
       else {
         return
@@ -58,10 +59,16 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
     containerView.addSubview(snapshot)
     fromVC.view.alpha = 0.5
     
+    if let fromC = fromVC as? RevealViewController{
+      fromC.imageView.isHidden = true
+      fromC.view.backgroundColor = UIColor.clear
+    }
+    
+    
     AnimationHelper.perspectiveTransform(for: containerView)
-    toVC.view.layer.transform = AnimationHelper.yRotation(-.pi / 2)
+    toView.layer.transform = AnimationHelper.yRotation(-.pi / 2)
     let duration = transitionDuration(using: transitionContext)
-    containerView.bringSubview(toFront: toVC.view)
+    containerView.bringSubview(toFront: toView)
     UIView.animateKeyframes(
       withDuration: duration,
       delay: 0,
@@ -76,7 +83,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
         }
         
         UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3) {
-          toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
+          toView.layer.transform = AnimationHelper.yRotation(0.0)
         }
     },
       completion: { _ in
@@ -84,7 +91,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
         snapshot.removeFromSuperview()
         if transitionContext.transitionWasCancelled {
           fromVC.view.alpha = 1
-          containerView.sendSubview(toBack: toVC.view)
+          containerView.sendSubview(toBack: toView)
         }
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
     })
