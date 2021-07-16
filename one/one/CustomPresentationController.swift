@@ -59,7 +59,7 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 3.0
+        return 0.5
     }
     
     
@@ -84,6 +84,65 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
             toCtrl.view.frame = finalCtrlFrame
         } completion: { _ in
             fromCtrl.view.alpha = 1
+            transitionContext.completeTransition(true)
+        }
+
+       
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
+    
+    
+    fileprivate var presentingDirection: PresentingDirection
+    
+    
+    init(direction orientation: PresentingDirection) {
+        presentingDirection = orientation
+    }
+    
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 5
+    }
+    
+    
+    
+    
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard let fromCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+              let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from) else{
+            return
+        }
+         
+        let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
+        let containerView = transitionContext.containerView
+
+        fromView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
+        
+        containerView.bringSubviewToFront(fromView)
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
+            fromView.frame = finalCtrlFrame
+            fromCtrl.view.alpha = 0.5
+        } completion: { _ in
+            
             transitionContext.completeTransition(true)
         }
 

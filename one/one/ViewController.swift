@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     let customPresentionController = CustomPresentationController(direction: .right)
     
+    let customDismissController = CustomDismissController(direction: .left)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,16 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return customPresentionController
+    }
+    
+    
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        
+        return customDismissController
+        
+        
     }
 }
 
