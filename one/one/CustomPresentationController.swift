@@ -13,11 +13,9 @@ import UIKit
 enum PresentingDirection{
     case top, right, left, bottom
     
-    
     var bounds: CGRect{
         UIScreen.main.bounds
     }
-    
     
     func offsetF(withFrame viewFrame: CGRect) -> CGRect{
         let h = bounds.size.height
@@ -35,16 +33,8 @@ enum PresentingDirection{
             
         }
         
-        
-        
     }
-    
-    
 }
-
-
-
-
 
 
 class CustomPresentationController: NSObject, UIViewControllerAnimatedTransitioning{
@@ -57,14 +47,9 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
         presentingDirection = orientation
     }
     
-    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 1
     }
-    
-    
-    
-    
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
@@ -86,21 +71,7 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
             fromCtrl.view.alpha = 1
             transitionContext.completeTransition(true)
         }
-
-       
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 
@@ -147,10 +118,59 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
             let success = !transitionContext.transitionWasCancelled
             transitionContext.completeTransition(success)
         }
+    }
+}
 
+
+
+
+
+
+
+class CustomDismissControllerError: NSObject, UIViewControllerAnimatedTransitioning{
+    
+    
+    fileprivate var presentingDirection: PresentingDirection
+    
+    
+    init(direction orientation: PresentingDirection) {
+        presentingDirection = orientation
+    }
+    
+    
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return 1
+    }
+    
+    
+    
+    
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard let fromCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+              let toCtrl = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to), let toView = toCtrl.view, let snapshot = fromCtrl.view.snapshotView(afterScreenUpdates: false) else{
+            return
+        }
+        
+        let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
+        let containerView = transitionContext.containerView
+        fromCtrl.view.isHidden = true
+        snapshot.frame = finalCtrlFrame
+        containerView.addSubview(snapshot)
+        toView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
+    
+
+        containerView.bringSubviewToFront(toView)
+  
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
+            toView.frame = finalCtrlFrame
        
-        
-        
+        } completion: { _ in
+            let success = !transitionContext.transitionWasCancelled
+            transitionContext.completeTransition(success)
+        }
+
     }
     
     
