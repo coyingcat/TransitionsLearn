@@ -59,7 +59,7 @@ class CustomPresentationController: NSObject, UIViewControllerAnimatedTransition
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 3
+        return 0.3
     }
     
     
@@ -118,7 +118,7 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 3
+        return 2
     }
     
     
@@ -132,13 +132,13 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
             return
         }
         
-        fromCtrl.view.isHidden = true
         let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
         let containerView = transitionContext.containerView
 
         toView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
-        
-        containerView.bringSubviewToFront(toView)
+        containerView.addSubview(fromCtrl.view)
+        containerView.addSubview(toView)
+  
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
             toView.frame = finalCtrlFrame
        
