@@ -134,10 +134,11 @@ class CustomDismissController: NSObject, UIViewControllerAnimatedTransitioning{
         
         let finalCtrlFrame = transitionContext.finalFrame(for: fromCtrl)
         let containerView = transitionContext.containerView
-
+        fromCtrl.view.alpha = 0.5
         toView.frame = presentingDirection.offsetF(withFrame: finalCtrlFrame)
-        containerView.addSubview(fromCtrl.view)
-        containerView.addSubview(toView)
+    
+
+        containerView.bringSubviewToFront(toView)
   
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: .curveLinear) {
             toView.frame = finalCtrlFrame
