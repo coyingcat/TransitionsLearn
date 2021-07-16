@@ -39,7 +39,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
   }
   
   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return 5
+    return 3
   }
   
   func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -57,8 +57,7 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
     let containerView = transitionContext.containerView
 
     containerView.addSubview(snapshot)
-    fromVC.view.alpha = 0.5
-    
+
     if let fromC = fromVC as? RevealViewController{
       fromC.imageView.isHidden = true
       fromC.view.backgroundColor = UIColor.clear
@@ -90,7 +89,6 @@ class FlipDismissAnimationController: NSObject, UIViewControllerAnimatedTransiti
        
         snapshot.removeFromSuperview()
         if transitionContext.transitionWasCancelled {
-          fromVC.view.alpha = 1
           containerView.sendSubviewToBack(toView)
         }
         transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
