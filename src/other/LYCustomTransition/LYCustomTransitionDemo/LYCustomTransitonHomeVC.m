@@ -37,65 +37,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.title = @"Home";
+    _sectionTitleArr = @[@"导航 Navigation-Transition"];
     
-    _sectionTitleArr = @[@"CATransition", @"导航 Navigation-Transition", @"模态 Modal-Transition", @"网友提问", @"图片浏览器"];
-    
-    _showDataArr = @[
-                     @[@"Nav-CATransition",
-                       @"Modal-CATransition"],
-                     
-                     @[@"基础转场-非交互式",
-                       @"仿酷狗转场-非交互式",
-                       @"仿微信、苹果系统图片浏览转场-非交互式",
-                       @"基础转场-交互式",
-                       @"仿酷狗转场-交互式",
-                       @"仿微信、苹果系统图片浏览转场-交互式"],
-                     
-                     @[@"基础转场",
-                       @"仿酷狗转场-非交互式",
-                       @"仿微信、苹果系统图片浏览转场-非交互式",
-                       @"仿酷狗转场-交互式",
-                       @"仿微信、苹果系统图片浏览转场-交互式"],
-                     
-                     @[@"Question-one-仿淘宝有好货详情转场动画",
-                       @"Question-two-仿掌阅转场动画"],
-                     
-                     @[@"PictureBrowse"]
+    _showDataArr = @[ @[@"基础转场-非交互式"]
                      ];
     
-    _vcClassArr = @[
-                    @[@"LYNavCATransitionFirstVC",
-                      @"LYModalCATransitionFirstVC"],
-                    
-                    @[@"LYNavBaseVC",
-                      @"LYNavKugouVC",
-                      @"LYNavWeChatVC",
-                      @"LYNavBaseInteractiveVC",
-                      @"LYNavKuGouInteractiveVC",
-                      @"LYNavWeChatInteractiveVC"],
-                    
-                    @[@"LYModalBaseVC",
-                      @"LYModalKuGouVC",
-                      @"LYModalWeChatVC",
-                      @"LYModalKuGouInteractiveVC",
-                      @"LYModalWeChatInteractiveVC"],
-                    
-                    @[@"LYQuestionsOneFirstVC",
-                      @"LYQuestionTwoFirstVC"],
-                    
-                    @[@"LYPictureFirstVC"]
-                    ];
+    _vcClassArr = @[@[@"LYNavBaseVC"]
+          ];
+    //
     
-    [self createUI];
+    //
     
-}
-
-#pragma mark - Create view
-
-- (void)createUI
-{
+    //
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavBarHeight, kScreenWidth, kScreenHeight - kNavBarHeight) style:UITableViewStyleGrouped];
     tableView.backgroundColor = bgColor;
     tableView.delegate = self;
