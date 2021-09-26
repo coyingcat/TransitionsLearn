@@ -15,6 +15,7 @@
 		2643BC7A2700237C00D747A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2643BC782700237C00D747A3 /* LaunchScreen.storyboard */; };
 		2643BC82270023A800D747A3 /* Two.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC81270023A800D747A3 /* Two.swift */; };
 		2643BC84270023B300D747A3 /* Three.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC83270023B300D747A3 /* Three.swift */; };
+		2643BC862700280500D747A3 /* AnimatePush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC852700280500D747A3 /* AnimatePush.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2643BC7B2700237C00D747A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2643BC81270023A800D747A3 /* Two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Two.swift; sourceTree = "<group>"; };
 		2643BC83270023B300D747A3 /* Three.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Three.swift; sourceTree = "<group>"; };
+		2643BC852700280500D747A3 /* AnimatePush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatePush.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				2643BC83270023B300D747A3 /* Three.swift */,
 				2643BC81270023A800D747A3 /* Two.swift */,
 				2643BC712700237B00D747A3 /* ViewController.swift */,
+				2643BC852700280500D747A3 /* AnimatePush.swift */,
 			);
 			path = two;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2643BC722700237B00D747A3 /* ViewController.swift in Sources */,
+				2643BC862700280500D747A3 /* AnimatePush.swift in Sources */,
 				2643BC6E2700237B00D747A3 /* AppDelegate.swift in Sources */,
 				2643BC82270023A800D747A3 /* Two.swift in Sources */,
 				2643BC84270023B300D747A3 /* Three.swift in Sources */,

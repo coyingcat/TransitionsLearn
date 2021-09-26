@@ -18,6 +18,18 @@ class Three: UIViewController {
         view.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(Three.three))
         view.addGestureRecognizer(tap)
+        
+        
+        let s = UIScreen.main.bounds.size
+        let tip = UILabel()
+        tip.textAlignment = .center
+        tip.textColor = UIColor.white
+        tip.backgroundColor = UIColor.gray
+        tip.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        tip.center = CGPoint(x: s.width / 2.0, y: s.height / 2.0)
+        tip.text = "3 后退"
+        view.addSubview(tip)
+        
     }
     
 

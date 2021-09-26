@@ -8,13 +8,16 @@
 import UIKit
 
 class Two: UIViewController {
-
+    let navAnimatorPush = NavBaseCustomAnimatorPush(direction: .left)
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         title = "第 2"
         view.backgroundColor = UIColor.blue
+        navigationController?.delegate = self
     }
     
 
@@ -33,20 +36,33 @@ class Two: UIViewController {
     
     
     @IBAction func two(_ sender: Any) {
-
         
         if var arr = navigationController?.viewControllers{
             arr.removeLast()
             arr.append(Three())
             navigationController?.setViewControllers(arr, animated: true)
         }
-        
-        
-        
-        
     }
     
     
     
 
+}
+
+
+
+
+extension Two: UINavigationControllerDelegate{
+    
+    
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .push{
+            return navAnimatorPush
+        }
+        else{
+            return nil
+        }
+    }
+    
 }
