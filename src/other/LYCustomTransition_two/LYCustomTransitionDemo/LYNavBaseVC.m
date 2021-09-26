@@ -14,7 +14,6 @@
 
 @property (nonatomic, strong) LYNavBaseCustomAnimator *customAnimator;
 
-@property (nonatomic, strong) UIImageView         *imgView;
 
 @end
 
@@ -31,7 +30,7 @@
     self.view.backgroundColor = bgColor;
     self.view.layer.masksToBounds = YES;
     
-    _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 120, 120)];
+    UIImageView * _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 120, 120)];
     _imgView.center = self.view.center;
     _imgView.image = [UIImage imageNamed:@"Base"];
     _imgView.userInteractionEnabled = YES;

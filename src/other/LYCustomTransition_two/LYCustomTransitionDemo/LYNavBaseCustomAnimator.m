@@ -47,12 +47,9 @@
     //动画
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         if (isPush) {
-//            toView.transform = CGAffineTransformIdentity;
             toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         }else{
             fromView.frame = CGRectMake(kScreenWidth, kScreenHeight, kScreenWidth, kScreenHeight);
-            
-//            fromView.transform = CGAffineTransformMake(1,0,0,0.01,0,0);
         }
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
