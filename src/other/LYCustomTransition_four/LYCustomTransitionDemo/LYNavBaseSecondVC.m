@@ -8,6 +8,8 @@
 
 #import "LYNavBaseSecondVC.h"
 
+#import "ThirdCtrl.h"
+
 #import "LYNavBaseCustomAnimatorPop.h"
 @interface LYNavBaseSecondVC ()<UINavigationControllerDelegate>
 
@@ -49,10 +51,10 @@
     
     //1. 设置代理
     self.navigationController.delegate = self;
-    
-    //2.push跳转
-    LYNavBaseSecondVC *second = [[LYNavBaseSecondVC alloc] init];
-    [self.navigationController pushViewController:second animated:YES];
+    NSMutableArray<UIViewController *> * ctrls = [self.navigationController.viewControllers mutableCopy];
+    [ctrls removeLastObject];
+    [ctrls addObject: [[ThirdCtrl alloc] init]];
+    [self.navigationController setViewControllers: [ctrls copy] animated: YES];
 }
 
 - (LYNavBaseCustomAnimatorPop *)customAnimatorPop
@@ -76,13 +78,13 @@
         
         
         NSLog(@" 111 ");
-        
+        return self.customAnimatorPop;
     }else if (operation == UINavigationControllerOperationPop){
         NSLog(@" 222 ");
         
     }else if (operation == UINavigationControllerOperationNone){
         NSLog(@" 333 ");
-        return self.customAnimatorPop;
+        
     }
     return nil;
 }

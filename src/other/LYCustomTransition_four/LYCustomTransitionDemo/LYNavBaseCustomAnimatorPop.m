@@ -24,21 +24,17 @@
     //ToVC
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *toView = toViewController.view;
-    toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    
 
 
         [containerView addSubview:toView];
         [containerView addSubview:fromView];//pop,这里的fromView 也是相当于secondVC的view
-        fromView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-        
     
     //因为secondVC的view在firstVC的view之上，所以要后添加到containerView中
-    
+    toView.frame = CGRectMake(-1 * kScreenWidth, 0, kScreenWidth, kScreenHeight);
     //动画
-    [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-  
-            fromView.frame = CGRectMake(kScreenWidth, kScreenHeight * 0.66, kScreenWidth, kScreenHeight);
+    [UIView animateWithDuration: 3 animations:^{
+        toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    
         
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];

@@ -24,8 +24,6 @@
     //ToVC
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *toView = toViewController.view;
-    toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    
 
         [containerView addSubview:fromView];
         [containerView addSubview:toView];//push,这里的toView 相当于secondVC的view
