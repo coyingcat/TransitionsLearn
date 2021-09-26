@@ -29,7 +29,7 @@
 
         [containerView addSubview:fromView];
         [containerView addSubview:toView];//push,这里的toView 相当于secondVC的view
-        toView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
+        toView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, kScreenHeight);
 
     //因为secondVC的view在firstVC的view之上，所以要后添加到containerView中
     

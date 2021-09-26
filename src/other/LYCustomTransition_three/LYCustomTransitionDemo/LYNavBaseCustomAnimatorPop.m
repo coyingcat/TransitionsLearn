@@ -38,7 +38,7 @@
     //动画
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
   
-            fromView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
+            fromView.frame = CGRectMake(kScreenWidth, kScreenHeight * 0.66, kScreenWidth, kScreenHeight);
         
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
