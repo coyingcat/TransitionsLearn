@@ -32,10 +32,7 @@
     if (isPush) {
         [containerView addSubview:fromView];
         [containerView addSubview:toView];//push,这里的toView 相当于secondVC的view
-        toView.frame = CGRectMake(kScreenWidth, kScreenHeight, kScreenWidth, kScreenHeight);
-        
-//        toView.transform = CGAffineTransformMake(1,0,0,0,0,0);
-    
+        toView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
     }else{
         [containerView addSubview:toView];
         [containerView addSubview:fromView];//pop,这里的fromView 也是相当于secondVC的view
@@ -49,7 +46,7 @@
         if (isPush) {
             toView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
         }else{
-            fromView.frame = CGRectMake(kScreenWidth, kScreenHeight, kScreenWidth, kScreenHeight);
+            fromView.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
         }
     } completion:^(BOOL finished) {
         BOOL wasCancelled = [transitionContext transitionWasCancelled];
