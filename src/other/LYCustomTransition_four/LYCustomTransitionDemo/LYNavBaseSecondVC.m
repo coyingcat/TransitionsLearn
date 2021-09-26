@@ -11,7 +11,6 @@
 #import "LYNavBaseCustomAnimatorPop.h"
 @interface LYNavBaseSecondVC ()<UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIImageView *imgView;
 @property (nonatomic, strong) LYNavBaseCustomAnimatorPop *customAnimatorPop;
 @end
 
@@ -24,7 +23,7 @@
     self.view.layer.masksToBounds = YES;
     UIImage *image = [UIImage imageNamed:@"Base"];
     CGSize size = [self backImageSize:image];
-    _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - size.height) * 0.5, size.width, size.height)];
+    UIImageView * _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - size.height) * 0.5, size.width, size.height)];
     _imgView.image = image;
     _imgView.userInteractionEnabled = YES;
     [self.view addSubview:_imgView];
