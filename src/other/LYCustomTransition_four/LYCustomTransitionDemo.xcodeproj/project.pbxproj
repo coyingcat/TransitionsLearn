@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2643BC53270013E900D747A3 /* LYNavBaseSecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC4D270013E800D747A3 /* LYNavBaseSecondVC.m */; };
-		2643BC55270013E900D747A3 /* LYNavBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC52270013E900D747A3 /* LYNavBaseVC.m */; };
 		2643BC5A270019B700D747A3 /* LYNavBaseCustomAnimatorPop.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC56270019B600D747A3 /* LYNavBaseCustomAnimatorPop.m */; };
-		2643BC5B270019B700D747A3 /* LYNavBaseCustomAnimatorPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC58270019B700D747A3 /* LYNavBaseCustomAnimatorPush.m */; };
 		2643BC5E27001BA900D747A3 /* ThirdCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC5D27001BA900D747A3 /* ThirdCtrl.m */; };
+		2643BC6027001CF700D747A3 /* LYNavBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2643BC5F27001CF700D747A3 /* LYNavBaseVC.m */; };
 		456A21AE20010C5700FEAD1D /* content.png in Resources */ = {isa = PBXBuildFile; fileRef = 456A21AD20010C5700FEAD1D /* content.png */; };
 		456A21B020010C6F00FEAD1D /* flip.png in Resources */ = {isa = PBXBuildFile; fileRef = 456A21AF20010C6F00FEAD1D /* flip.png */; };
 		B64E097C1FDE5C25001BF275 /* nodata.png in Resources */ = {isa = PBXBuildFile; fileRef = B64E097B1FDE5C25001BF275 /* nodata.png */; };
@@ -75,13 +74,11 @@
 		2643BC4D270013E800D747A3 /* LYNavBaseSecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavBaseSecondVC.m; sourceTree = "<group>"; };
 		2643BC4E270013E800D747A3 /* LYNavBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNavBaseVC.h; sourceTree = "<group>"; };
 		2643BC51270013E900D747A3 /* LYNavBaseSecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNavBaseSecondVC.h; sourceTree = "<group>"; };
-		2643BC52270013E900D747A3 /* LYNavBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavBaseVC.m; sourceTree = "<group>"; };
 		2643BC56270019B600D747A3 /* LYNavBaseCustomAnimatorPop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavBaseCustomAnimatorPop.m; sourceTree = "<group>"; };
 		2643BC57270019B700D747A3 /* LYNavBaseCustomAnimatorPop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNavBaseCustomAnimatorPop.h; sourceTree = "<group>"; };
-		2643BC58270019B700D747A3 /* LYNavBaseCustomAnimatorPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavBaseCustomAnimatorPush.m; sourceTree = "<group>"; };
-		2643BC59270019B700D747A3 /* LYNavBaseCustomAnimatorPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYNavBaseCustomAnimatorPush.h; sourceTree = "<group>"; };
 		2643BC5C27001BA900D747A3 /* ThirdCtrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdCtrl.h; sourceTree = "<group>"; };
 		2643BC5D27001BA900D747A3 /* ThirdCtrl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdCtrl.m; sourceTree = "<group>"; };
+		2643BC5F27001CF700D747A3 /* LYNavBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYNavBaseVC.m; sourceTree = "<group>"; };
 		456A21AD20010C5700FEAD1D /* content.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = content.png; sourceTree = "<group>"; };
 		456A21AF20010C6F00FEAD1D /* flip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flip.png; sourceTree = "<group>"; };
 		B64E097B1FDE5C25001BF275 /* nodata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nodata.png; sourceTree = "<group>"; };
@@ -198,21 +195,19 @@
 		B66421731E607A1800AA95C2 /* LYCustomTransitionDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2643BC57270019B700D747A3 /* LYNavBaseCustomAnimatorPop.h */,
-				2643BC56270019B600D747A3 /* LYNavBaseCustomAnimatorPop.m */,
-				2643BC59270019B700D747A3 /* LYNavBaseCustomAnimatorPush.h */,
-				2643BC58270019B700D747A3 /* LYNavBaseCustomAnimatorPush.m */,
 				B66421771E607A1800AA95C2 /* AppDelegate.h */,
 				B66421781E607A1800AA95C2 /* AppDelegate.m */,
-				2643BC5C27001BA900D747A3 /* ThirdCtrl.h */,
-				2643BC5D27001BA900D747A3 /* ThirdCtrl.m */,
+				2643BC57270019B700D747A3 /* LYNavBaseCustomAnimatorPop.h */,
+				2643BC56270019B600D747A3 /* LYNavBaseCustomAnimatorPop.m */,
 				2643BC51270013E900D747A3 /* LYNavBaseSecondVC.h */,
 				2643BC4D270013E800D747A3 /* LYNavBaseSecondVC.m */,
 				2643BC4E270013E800D747A3 /* LYNavBaseVC.h */,
-				2643BC52270013E900D747A3 /* LYNavBaseVC.m */,
+				2643BC5F27001CF700D747A3 /* LYNavBaseVC.m */,
 				B66422561E607A7200AA95C2 /* PrefixHeader.pch */,
 				B66422081E607A3900AA95C2 /* Resource */,
 				B66421741E607A1800AA95C2 /* Supporting Files */,
+				2643BC5C27001BA900D747A3 /* ThirdCtrl.h */,
+				2643BC5D27001BA900D747A3 /* ThirdCtrl.m */,
 			);
 			path = LYCustomTransitionDemo;
 			sourceTree = "<group>";
@@ -515,11 +510,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2643BC6027001CF700D747A3 /* LYNavBaseVC.m in Sources */,
 				2643BC5E27001BA900D747A3 /* ThirdCtrl.m in Sources */,
-				2643BC55270013E900D747A3 /* LYNavBaseVC.m in Sources */,
 				2643BC5A270019B700D747A3 /* LYNavBaseCustomAnimatorPop.m in Sources */,
 				2643BC53270013E900D747A3 /* LYNavBaseSecondVC.m in Sources */,
-				2643BC5B270019B700D747A3 /* LYNavBaseCustomAnimatorPush.m in Sources */,
 				B66421791E607A1800AA95C2 /* AppDelegate.m in Sources */,
 				B66421761E607A1800AA95C2 /* main.m in Sources */,
 			);

@@ -8,10 +8,11 @@
 
 #import "LYNavBaseSecondVC.h"
 
-@interface LYNavBaseSecondVC ()
+#import "LYNavBaseCustomAnimatorPop.h"
+@interface LYNavBaseSecondVC ()<UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIImageView *imgView;
-
+@property (nonatomic, strong) LYNavBaseCustomAnimatorPop *customAnimatorPop;
 @end
 
 @implementation LYNavBaseSecondVC
@@ -55,6 +56,36 @@
     [self.navigationController pushViewController:second animated:YES];
 }
 
+- (LYNavBaseCustomAnimatorPop *)customAnimatorPop
+{
+    if (_customAnimatorPop == nil) {
+        _customAnimatorPop = [[LYNavBaseCustomAnimatorPop alloc]init];
+    }
+    return _customAnimatorPop;
+}
 
+
+
+
+#pragma mark - UINavigationControllerDelegate
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                         fromViewController:(UIViewController *)fromVC
+                                                           toViewController:(UIViewController *)toVC{
+    if (operation == UINavigationControllerOperationPush) {
+        
+        
+        NSLog(@" 111 ");
+        
+    }else if (operation == UINavigationControllerOperationPop){
+        NSLog(@" 222 ");
+        
+    }else if (operation == UINavigationControllerOperationNone){
+        NSLog(@" 333 ");
+        return self.customAnimatorPop;
+    }
+    return nil;
+}
 
 @end

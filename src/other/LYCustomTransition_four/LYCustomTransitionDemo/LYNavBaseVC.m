@@ -10,24 +10,13 @@
 #import "LYNavBaseSecondVC.h"
 
 
-#import "LYNavBaseCustomAnimatorPush.h"
-#import "LYNavBaseCustomAnimatorPop.h"
 
-@interface LYNavBaseVC () <UINavigationControllerDelegate>
-
-@property (nonatomic, strong) LYNavBaseCustomAnimatorPush *customAnimatorPush;
-
-@property (nonatomic, strong) LYNavBaseCustomAnimatorPop *customAnimatorPop;
+@interface LYNavBaseVC () 
 
 @end
 
 @implementation LYNavBaseVC
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    self.navigationController.delegate = nil;
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Base";
@@ -45,10 +34,7 @@
 }
 
 - (void)pushSecond{
-    
-    //1. 设置代理
-    self.navigationController.delegate = self;
-    
+
     //2.push跳转
     LYNavBaseSecondVC *second = [[LYNavBaseSecondVC alloc] init];
     [self.navigationController pushViewController:second animated:YES];
@@ -56,42 +42,4 @@
 
 
 
-#pragma mark - UINavigationControllerDelegate
-
-- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                            animationControllerForOperation:(UINavigationControllerOperation)operation
-                                                         fromViewController:(UIViewController *)fromVC
-                                                           toViewController:(UIViewController *)toVC{
-    if (operation == UINavigationControllerOperationPush) {
-        
-        
-        NSLog(@" 111 ");
-        return self.customAnimatorPush;
-        
-    }else if (operation == UINavigationControllerOperationPop){
-        NSLog(@" 222 ");
-        return self.customAnimatorPop;
-    }else if (operation == UINavigationControllerOperationNone){
-        NSLog(@" 333 ");
-       
-    }
-    return nil;
-}
-
-- (LYNavBaseCustomAnimatorPush *)customAnimatorPush
-{
-    if (_customAnimatorPush == nil) {
-        _customAnimatorPush = [[LYNavBaseCustomAnimatorPush alloc]init];
-    }
-    return _customAnimatorPush;
-}
-
-
-- (LYNavBaseCustomAnimatorPop *)customAnimatorPop
-{
-    if (_customAnimatorPop == nil) {
-        _customAnimatorPop = [[LYNavBaseCustomAnimatorPop alloc]init];
-    }
-    return _customAnimatorPop;
-}
 @end
